@@ -19,7 +19,6 @@ type CSV struct {
 	From         string `json:"from"`
 	DomainName   string `json:"domain_name"`
 	APIKey       string `json:"api_key"`
-	PublicAPIKey string `json:"public_api_key"`
 	Test         bool   `json:"test"`
 	HTMLTemplate string `json:"html_template"`
 	TEXTTemplate string `json:"text_template,omitempty"`
@@ -40,7 +39,7 @@ func (c *CSV) ReadCSVAndSend(filename string) error {
 	}
 	defer f.Close()
 
-	mg := mailgun.NewMailgun(c.DomainName, c.APIKey, c.PublicAPIKey)
+	mg := mailgun.NewMailgun(c.DomainName, c.APIKey, "")
 
 	readChannel := c.csvReader(f)
 
@@ -54,14 +53,19 @@ func (c *CSV) ReadCSVAndSend(filename string) error {
 		message.SetReplyTo(c.From)
 		message.SetHtml(html)
 		message.SetTracking(true)
-		// resp, id, err := mg.Send(message)
 
-		if err != nil {
-			log.Fatal(err)
+		if !c.Test {
+			resp, id, err := mg.Send(message)
+
+			if err != nil {
+				log.Fatal(err)
+			}
+
+			fmt.Printf("ID: %s Resp: %s\n", id, resp)
+		} else {
+			fmt.Printf("Test success for %s\n", recipient)
 		}
-		fmt.Printf("ID: %s Resp: %s\n", c.From, recipient)
 
-		// fmt.Printf("ID: %s Resp: %s\n", id, resp)
 	}
 	return nil
 }

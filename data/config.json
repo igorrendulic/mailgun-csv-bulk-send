@@ -1,7 +1,6 @@
 {
 	"domain_name": "domainname",
 	"api_key": "appkey",
-	"public_api_key": "publicapikey",
 	"subject": "this is my subject",
 	"from": "mymail <mymail@mymail.com>",
 	"html_template":"templates/simple-template.html",
