@@ -1,0 +1,7 @@
+Hi {{name}},
+
+Sometimes you just want to send a simple HTML email with a simple design and clear call to action. This is it.
+
+This is a really simple email template. Its sole purpose is to get the recipient to click the button with no distractions.
+
+Good luck! The date is {{date}}.
