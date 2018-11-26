@@ -59,3 +59,12 @@ This is a really simple email template. Its sole purpose is to get the recipient
 
 Good luck! The date is {{date}}.
 ```
+
+# Libraries
+
+[Mustache](https://github.com/hoisie/mustache) - This one was taken from this project (dep didn't pointed to older version)
+
+[Mailgun](https://github.com/mailgun/mailgun-go)
+
+[Cobra](github.com/spf13/cobra)
+
