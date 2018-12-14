@@ -25,6 +25,7 @@ type CSV struct {
 	TEXTTemplate string `json:"text_template,omitempty"`
 }
 
+// ReadCSVAndSend reads csv file line by line, augments with mustache parameters and send an email
 func (c *CSV) ReadCSVAndSend(filename string) error {
 
 	err := c.validateConfig()

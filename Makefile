@@ -1,2 +1,2 @@
 build:
-	CGO_ENABLED=0 go build -o build/mgsend ./cmd/
+	go build -o build/mgsend main.go
