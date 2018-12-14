@@ -7,7 +7,7 @@ import (
 	"io/ioutil"
 	"os"
 
-	"github.com/mailgun-cmd-bulk-sender/mailgunsend"
+	"github.com/igorrendulic/mailgun-csv-bulk-send/mailgunsend"
 	"github.com/spf13/cobra"
 )
 

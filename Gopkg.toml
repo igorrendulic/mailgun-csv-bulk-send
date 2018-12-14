@@ -24,6 +24,11 @@
 #   go-tests = true
 #   unused-packages = true
 
+
+[[constraint]]
+  name = "github.com/mailgun/mailgun-go"
+  version = "2.0.0"
+
 [[constraint]]
   name = "github.com/spf13/cobra"
   version = "0.0.3"

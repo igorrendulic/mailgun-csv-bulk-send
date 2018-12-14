@@ -9,7 +9,8 @@ import (
 	"os"
 	"strings"
 
-	"github.com/mailgun-cmd-bulk-sender/mustache"
+	"github.com/igorrendulic/mailgun-csv-bulk-send/mustache"
+
 	mailgun "github.com/mailgun/mailgun-go"
 )
 
@@ -39,7 +40,7 @@ func (c *CSV) ReadCSVAndSend(filename string) error {
 	}
 	defer f.Close()
 
-	mg := mailgun.NewMailgun(c.DomainName, c.APIKey, "")
+	mg := mailgun.NewMailgun(c.DomainName, c.APIKey)
 
 	readChannel := c.csvReader(f)
 

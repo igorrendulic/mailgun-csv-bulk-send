@@ -2,6 +2,14 @@
 
 
 [[projects]]
+  digest = "1:bd342004ef1bb83bee8709e2ad630e47a95d069f7fcb60ee1b8bceb4bbbe14ae"
+  name = "github.com/gobuffalo/envy"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "801d7253ade1f895f74596b9a96147ed2d3b087e"
+  version = "v1.6.11"
+
+[[projects]]
   digest = "1:870d441fe217b8e689d7949fef6e43efbc787e50f200cb1e70dbca9204a1d6be"
   name = "github.com/inconshreveable/mousetrap"
   packages = ["."]
@@ -10,20 +18,40 @@
   version = "v1.0"
 
 [[projects]]
-  digest = "1:6ad77325212e02cc2c76bc974fcfb59a227018afddbd3bc78ea3cc53dadb2554"
+  digest = "1:ecd9aa82687cf31d1585d4ac61d0ba180e42e8a6182b85bd785fcca8dfeefc1b"
+  name = "github.com/joho/godotenv"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "23d116af351c84513e1946b527c88823e476be13"
+  version = "v1.3.0"
+
+[[projects]]
+  digest = "1:cbd169f49979ba0bc483cd418da756a21bba0081526d8af0fb0e9218deac2a08"
   name = "github.com/mailgun/mailgun-go"
   packages = ["."]
   pruneopts = "UT"
-  revision = "28c45085c063854b83107df6cf37ad8f88462105"
-  version = "v1.1.1"
+  revision = "4071f66f00fb74b08ae720f28ee9fcd98ebfd69e"
+  version = "v2.0.0"
 
 [[projects]]
-  digest = "1:40e195917a951a8bf867cd05de2a46aaf1806c50cf92eebf4c16f78cd196f747"
+  branch = "master"
+  digest = "1:9f6281d8f50290ba740db82fe5be52877936e47928cd67285ab31b490c202247"
   name = "github.com/pkg/errors"
   packages = ["."]
   pruneopts = "UT"
-  revision = "645ef00459ed84a119197bfb8d8205042c6df63d"
-  version = "v0.8.0"
+  revision = "059132a15dd08d6704c67711dae0cf35ab991756"
+
+[[projects]]
+  digest = "1:efafa5160b1666d27e6e1ad4cd3fba27ce73aaaa1e99c3d02e14e55690a8878d"
+  name = "github.com/rogpeppe/go-internal"
+  packages = [
+    "modfile",
+    "module",
+    "semver",
+  ]
+  pruneopts = "UT"
+  revision = "d87f08a7d80821c797ffc8eb8f4e01675f378736"
+  version = "v1.0.0"
 
 [[projects]]
   digest = "1:645cabccbb4fa8aab25a956cbcbdf6a6845ca736b2c64e197ca7cbb9d210b939"
