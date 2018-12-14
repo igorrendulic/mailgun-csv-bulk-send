@@ -25,7 +25,7 @@ var (
 
 func init() {
 
-	sendCmd.Flags().StringVarP(&config, "config", "c", "", "Config file. See example in github.com/igorrendulic/mailgun-cmd-bulk-sender")
+	sendCmd.Flags().StringVarP(&config, "config", "c", "", "Config file. See example in github.com/igorrendulic/mailgun-csv-bulk-send")
 	sendCmd.Flags().StringVarP(&csvFile, "csv", "s", "", "Csv File. Make sure first line of CSV has headers")
 
 	rootCmd.AddCommand(sendCmd)
