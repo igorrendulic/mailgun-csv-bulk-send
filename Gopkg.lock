@@ -10,6 +10,18 @@
   version = "v1.6.11"
 
 [[projects]]
+  branch = "master"
+  digest = "1:5be646dc103073abaf80603aaec90863da3f1d3cf66342901effb9833422998b"
+  name = "github.com/igorrendulic/mailgun-csv-bulk-send"
+  packages = [
+    "cmd",
+    "mailgunsend",
+    "mustache",
+  ]
+  pruneopts = "UT"
+  revision = "e605dccc39ecc427d41e673b97d66edd1f3e9bba"
+
+[[projects]]
   digest = "1:870d441fe217b8e689d7949fef6e43efbc787e50f200cb1e70dbca9204a1d6be"
   name = "github.com/inconshreveable/mousetrap"
   packages = ["."]
@@ -73,6 +85,9 @@
   analyzer-name = "dep"
   analyzer-version = 1
   input-imports = [
+    "github.com/igorrendulic/mailgun-csv-bulk-send/cmd",
+    "github.com/igorrendulic/mailgun-csv-bulk-send/mailgunsend",
+    "github.com/igorrendulic/mailgun-csv-bulk-send/mustache",
     "github.com/mailgun/mailgun-go",
     "github.com/spf13/cobra",
   ]
