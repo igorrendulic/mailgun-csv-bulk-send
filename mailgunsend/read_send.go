@@ -25,6 +25,33 @@ type CSV struct {
 	TEXTTemplate string `json:"text_template,omitempty"`
 }
 
+func NewCSVReader() *CSV {
+	return &CSV{}
+}
+
+func (c *CSV) LoadCSV(filename string) map[string]interface{} {
+	f, err := os.Open(filename)
+	if err != nil {
+		log.Fatal(err.Error())
+		panic(err)
+	}
+	defer f.Close()
+
+	readCh := c.csvReader(f)
+
+	output := make(map[string]interface{})
+
+	for lineJSON := range readCh {
+		if val, ok := lineJSON["email"]; ok {
+			output[val.(string)] = lineJSON
+		} else if val, ok := lineJSON["address"]; ok {
+			output[val.(string)] = lineJSON
+		}
+	}
+
+	return output
+}
+
 // ReadCSVAndSend reads csv file line by line, augments with mustache parameters and send an email
 func (c *CSV) ReadCSVAndSend(filename string) error {
 
@@ -48,7 +75,7 @@ func (c *CSV) ReadCSVAndSend(filename string) error {
 	for lineJSON := range readChannel {
 		html, text, recipient, err := c.mustacheIt(lineJSON)
 		if err != nil {
-			log.Fatal(err)
+			fmt.Printf("failed to mustache the email: %s ", err.Error())
 			continue
 		}
 		message := mg.NewMessage(c.From, c.Subject, text, recipient)
@@ -60,10 +87,10 @@ func (c *CSV) ReadCSVAndSend(filename string) error {
 			resp, id, err := mg.Send(message)
 
 			if err != nil {
-				log.Fatal(err)
+				fmt.Printf("Failed to send email to %s. Error: %s\n", recipient, err.Error())
+			} else {
+				fmt.Printf("ID: %s Resp: %s\n", id, resp)
 			}
-
-			fmt.Printf("ID: %s Resp: %s\n", id, resp)
 		} else {
 			fmt.Printf("Test success for %s\n", recipient)
 		}
